@@ -25,6 +25,16 @@ def parse_article(articles):
         article_store[title] = url
     return article_store
 
+def pick_article(article_store):
+    # pick a random article
+    article_title, article_link = choice(list(article_store.items()))
+    text_string = f"""
+    Good Morning! Your article this week is from {topic}, 
+    \nthe title is: {article_title}, here's the link: {article_link}
+    Have a terrific day!
+    """
+    return text_string
+
 def main():
 
 
