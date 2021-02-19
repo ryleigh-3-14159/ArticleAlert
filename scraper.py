@@ -1,14 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 from random import choice
-from twilio.rest import Client
 from time import sleep
+import sms
 
 # masks request from site (even though they've given CLEAR access to scraping...)
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
-# API keys for Twilio
-ACCOUNT_ID = "AC45b7c97ab723537ba4c1701d34e516d8"
-AUTH_TOKEN = "6deb927e9d0d0c0b6ff1750f1210f2cb"
 
 
 # loop through article tag in all of the html articles
@@ -25,29 +22,20 @@ def parse_article(articles):
         article_store[title] = url
     return article_store
 
+
 def pick_article(article_store, topic):
     # pick a random article
     article_title, article_link = choice(list(article_store.items()))
-    text_string = f"""
-    Good Morning!
-    \nYour article this week is from {topic}.
-    \nThe title is: {article_title}.
-    \nHere's the link: {article_link}
-    \nHave a terrific day!
-    """
+    text_string = f"Good Morning! Your article this week is from {topic}.\nThe title is: {article_title}. \nHere's " \
+                  f"the link: {article_link} \nHave a terrific day!"
     return text_string
+
 
 # opens twilio client api and sends sms message to specified number
 def send_message(message):
-    # creates client object from twilio account and api auth token
-    client = Client(ACCOUNT_ID, AUTH_TOKEN)
-    # sends message
-    sms = client.messages \
-        .create(
-        body=message,
-        from_='+18312188286',
-        to='+14153195470'
-    )
+    # sends message using attached sms script
+    return sms.send(message)
+
 
 def main():
     headers = {"user-agent": USER_AGENT}
@@ -61,10 +49,13 @@ def main():
     sleep(3)
     response = requests.get(URL, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
-
+    # finds all of the article tags
     art = soup.find_all("article")
+    # parses articles on front page
     front_page_articles = parse_article(art)
+    # randomly chooses article
     sms_message = pick_article(front_page_articles, topic)
+    # sends message
     send_message(sms_message)
 
 
