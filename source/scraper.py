@@ -1,18 +1,17 @@
 import sqlite3
 import requests
-import sms
 from bs4 import BeautifulSoup
 from random import choice
 from datetime import datetime
 from time import sleep
 
-ARTICLE_STORE = {}
-# masks request from site (even though they've given CLEAR access to scraping...)
+# masks request from site
 USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
 
 
 # loop through article tag in all of the html articles
 def parse_article(articles):
+    article_store = {}
     for article in articles:
         a_tag = article.find("a")
         title = a_tag.get_text().strip('\n')
@@ -21,8 +20,8 @@ def parse_article(articles):
         # if title is empty, set title to url name and remove dashes
         if title == '':
             title = url[30:-5].replace('-', ' ')
-        ARTICLE_STORE[title] = url
-    return ARTICLE_STORE
+        article_store[title] = url
+    return article_store
 
 
 # database entries and commitments
