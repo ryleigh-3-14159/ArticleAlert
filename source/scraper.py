@@ -8,7 +8,6 @@ from time import sleep
 # avoids bot rejection
 USER_AGENT = "YOUR USER_AGENT"
 
-
 # loop through article tag in all of the html articles
 def parse_article(articles):
     article_store = {}
