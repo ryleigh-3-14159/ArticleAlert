@@ -5,8 +5,8 @@ from random import choice
 from datetime import datetime
 from time import sleep
 
-# masks request from site
-USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"
+# avoids bot rejection
+USER_AGENT = "YOUR USER AGENT CREDENTIALS"
 
 
 # loop through article tag in all of the html articles
