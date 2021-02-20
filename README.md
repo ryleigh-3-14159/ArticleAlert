@@ -11,5 +11,9 @@ Specifically, I found myself forgetting to research scientific news, which I fin
 This way, with an email, phone number, and some scheduling programs, anyone can have articles randomly sent to their direct phone numbers. 
 Hopefully, in the process, this program can help break down barriers to information access for not just myself but others as well.
 
+# Libraries
+BeautifulSoup
+
+
 # License
 MIT © Ryleigh Smith
