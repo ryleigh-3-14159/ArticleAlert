@@ -18,7 +18,7 @@ def send(message):
 
     # authentication using specific google credentials,
     # note that if using google voice, this must be the same email used for voice number
-    auth = ('romynashwood', 'Lunafazes15')
+    auth = ('YOUR GMAIL USERNAME', 'YOUR GMAIL PASSWORD')
 
     # Establish a secure session with gmail's outgoing SMTP server using your gmail account
     server = smtplib.SMTP("smtp.gmail.com", 587)
