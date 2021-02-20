@@ -9,7 +9,7 @@ carriers = {
     'verizon': '@vtext.com',
     'sprint': '@page.nextel.com',
     't_mobile': '@tmomail.net',
-    'google_voice': 'text_thrad_code@txt.voice.google.com'
+    'google_voice': 'text_thread_code@txt.voice.google.com'
 }
 
 def send(message):
