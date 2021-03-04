@@ -13,7 +13,11 @@ Hopefully, in the process, this program can help break down barriers to informat
 
 # Libraries
 BeautifulSoup
-
+SQLite3
+Requests
+Random
+Datetime
+Time
 
 # License
 MIT © Ryleigh Smith
