@@ -8,9 +8,11 @@ from time import sleep
 # avoids bot rejection
 USER_AGENT = "YOUR USER_AGENT"
 
+
 # loop through article tag in all of the html articles
 def parse_article(articles):
     article_store = {}
+
     for article in articles:
         a_tag = article.find("a")
         title = a_tag.get_text().strip('\n')
@@ -19,7 +21,9 @@ def parse_article(articles):
         # if title is empty, set title to url name and remove dashes
         if title == '':
             title = url[30:-5].replace('-', ' ')
+
         article_store[title] = url
+
     return article_store
 
 
