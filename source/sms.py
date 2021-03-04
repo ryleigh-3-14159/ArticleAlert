@@ -7,8 +7,8 @@ NUMBER = 'YOUR NUMBER'
 carriers = {
     'at_and_t': '@mms.att.net',
     'verizon': '@vtext.com',
+'t_mobile': '@tmomail.net',
     'sprint': '@page.nextel.com',
-    't_mobile': '@tmomail.net',
     'google_voice': 'text_thread_code@txt.voice.google.com'
 }
 

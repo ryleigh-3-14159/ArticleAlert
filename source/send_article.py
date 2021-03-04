@@ -9,6 +9,5 @@ def main():
     # sends message
     sms.send(sms_message)
 
-
 if __name__ == "__main__":
     main()
